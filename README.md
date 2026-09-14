@@ -1,4 +1,4 @@
-# BarelyWall v1.0.5
+# BarelyWall
 
 BarelyWall is a standalone, menu-driven PowerShell utility for creating and maintaining program-specific Windows Firewall block rules. It deliberately manages only rules whose names begin with `BW -`, leaving every other firewall rule alone.
 
