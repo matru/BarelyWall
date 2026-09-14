@@ -1,10 +1,10 @@
-# BarelyWall
+# BarelyWall - Minimal Windows Firewall Manager
 
-BarelyWall is a standalone, menu-driven PowerShell utility for creating and maintaining program-specific Windows Firewall block rules. It deliberately manages only rules whose names begin with `BW -`, leaving every other firewall rule alone.
+BarelyWall is a standalone, menu-driven PowerShell utility for creating and maintaining program-specific Windows Firewall block rules.
 
-The program does not replace Windows Firewall or run its own network filter; it simply provides an easier way to manage Windows Firewall rules, which are enforced by Windows through the Windows Filtering Platform. It uses Windows’ built-in firewall management commands to create, find, enable, disable, export, and remove program-specific rules. Every rule it creates is labeled with the BW - prefix, allowing it to manage only its own rules without affecting unrelated Windows Firewall settings.
+The program does not replace Windows Firewall or run its own network filter; it simply provides an easier way to manage Windows Firewall rules, which are enforced by Windows through the Windows Filtering Platform. It uses Windows’ built-in firewall management commands to create, find, enable, disable, export, and remove program-specific rules. Every rule it creates is labeled with the BW - prefix, allowing it to manage only its own rules without affecting unrelated Windows Firewall settings. 
 
-BarelyWall is not a background service or always-running process. It only uses system resources while you have the utility open and are making changes; once closed, it adds no ongoing CPU, memory, or network overhead. Windows Firewall and the Windows Filtering Platform enforce the saved rules independently.
+BarelyWall is not a background service or always-running process. It only uses system resources while you have the utility open and are making changes; once closed, it adds no ongoing CPU, memory, or network overhead. Windows Firewall and the Windows Filtering Platform enforce the saved rules independently. 
 
 ![img](/BarelyWall.png)
 
