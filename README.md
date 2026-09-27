@@ -2,26 +2,13 @@
 
 BarelyWall is a standalone, menu-driven PowerShell utility for creating and maintaining program-specific Windows Firewall block rules. It is basically a [NetSecurity](https://learn.microsoft.com/en-us/powershell/module/netsecurity/?view=windowsserver2025-ps) wrapper, specifically leveraging the `NetFirewallRule` cmdlet, with a few QOL features bundled in.
 
-The program does not replace Windows Firewall or run its own network filter; it simply provides an easier way to manage Windows Firewall rules, which are enforced by Windows through the Windows Filtering Platform. It uses Windows’ built-in firewall management commands to create, find, enable, disable, export, and remove program-specific rules. Every rule it creates is labeled with the BW - prefix, allowing it to manage only its own rules without affecting unrelated Windows Firewall settings. 
+The program does not replace Windows Firewall or run its own network filter; it simply provides an easier way to manage Windows Firewall rules, which are enforced by Windows through the Windows Filtering Platform. As mentioned above, it uses Windows’ built-in firewall management commands to create, find, enable, disable, export, and remove program-specific rules. Every rule it creates is labeled with the BW - prefix, allowing it to manage only its own rules without affecting unrelated Windows Firewall settings. 
 
 BarelyWall is not a background service or always-running process. It only uses system resources while you have the utility open and are making changes; once closed, it adds no ongoing CPU, memory, or network overhead. Windows Firewall and the Windows Filtering Platform enforce the saved rules independently. 
 
 ![img](/BarelyWall.png)
 
-## Run it
-
-1. Move the `BarelyWall` folder to your preferred location.
-2. Open **Windows PowerShell** or **Terminal** as **Administrator**, `cd` to the directory.
-3. Run:
-
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass
-.\BarelyWall.ps1
-```
-
-The script needs administrator permission because Windows Firewall does.
-
-## What it manages
+## Features
 
 Rules are named like `BW - Block Inbound - Discord.exe` and are tagged with the **BarelyWall** group. Duplicate rules for the same executable and direction are skipped.
 
@@ -36,10 +23,23 @@ Rules are named like `BW - Block Inbound - Discord.exe` and are tagged with the 
 - Remove orphaned rules for applications that no longer exist
 - Keep activity logs
 
-## Data folders
+## Folder structure
 
 - `Data/RecentApps.json` stores recently used executable paths.
 - `Data/Logs` contains daily activity logs.
 - `Exports` receives rule backups.
 
 An import never creates a rule for a missing executable and always skips an existing matching rule. The menu asks before any removal, bulk modification, or import.
+
+## Running it
+
+1. Move the `BarelyWall` folder to your preferred location.
+2. Open **Windows PowerShell** or **Terminal** as **Administrator**, `cd` to the directory.
+3. Run:
+
+```powershell
+Set-ExecutionPolicy -Scope Process Bypass
+.\BarelyWall.ps1
+```
+
+The script needs administrator permission because Windows Firewall does.
